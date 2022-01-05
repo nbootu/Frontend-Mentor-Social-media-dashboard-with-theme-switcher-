@@ -1,0 +1,183 @@
+/* CSS variables */
+html {
+  /* Light theme colors */
+  --toggle-light: hsl(230, 22%, 74%);
+  --bg-site-light: hsl(0, 0%, 100%);
+  --bg-top-pattern-light: hsl(225, 100%, 98%);
+  --bg-card-light: hsl(227, 47%, 96%);
+  --text-1-light: hsl(228, 12%, 44%);
+  --text-2-light: hsl(230, 17%, 14%);
+
+  /* Light theme gradients */
+  --toggle-gradient-light: linear-gradient(
+    to right,
+    var(--toggle-light),
+    var(--toggle-light)
+  );
+
+  /* Dark theme colors */
+  --toggle-dark-1: hsl(210, 78%, 56%);
+  --toggle-dark-2: hsl(146, 68%, 55%);
+  --bg-site-dark: hsl(230, 17%, 14%);
+  --bg-top-pattern-dark: hsl(232, 19%, 15%);
+  --bg-card-dark: hsl(228, 28%, 20%);
+  --text-1-dark: hsl(228, 34%, 66%);
+  --text-2-dark: hsl(0, 0%, 100%);
+
+  /* Dark theme gradients */
+  --toggle-gradient-dark: linear-gradient(
+    to right,
+    var(--toggle-dark-1),
+    var(--toggle-dark-2)
+  );
+}
+
+:root {
+  /* Fonts */
+  --font: 'Inter', system-ui, sans-serif;
+  --font-size-1: 0.875rem;
+  --font-size-2: 1.25rem;
+  --font-size-3: 2.5rem;
+  --font-weight-1: 400;
+  --font-weight-2: 700;
+  --line-height-1: 1.5;
+  --line-height-2: 1.125;
+
+  /* Universal colors */
+  --trend-up: hsl(163, 72%, 41%);
+  --trend-down: hsl(356, 69%, 56%);
+  --fb: hsl(208, 92%, 53%);
+  --tw: hsl(203, 89%, 53%);
+  --ig-1: hsl(37, 97%, 70%);
+  --ig-2: hsl(329, 70%, 58%);
+  --yt: hsl(348, 97%, 39%);
+
+  /* Universal gradients */
+  --facebook: linear-gradient(to right, var(--fb), var(--fb));
+  --twitter: linear-gradient(to right, var(--tw), var(--tw));
+  --instagram: linear-gradient(to right, var(--ig-1), var(--ig-2));
+  --youtube: linear-gradient(to right, var(--yt), var(--yt));
+
+  /* Light theme as default */
+  color-scheme: light;
+
+  /* Defaults */
+  --toggle: var(--toggle-gradient-light);
+  --bg-site: var(--bg-site-light);
+  --bg-top-pattern: var(--bg-top-pattern-light);
+  --bg-card: var(--bg-card-light);
+  --text-1: var(--text-1-light);
+  --text-2: var(--text-2-light);
+
+  /* Sizes */
+  --size-0: -0.25rem;
+  --size-1: 0.25rem;
+  --size-2: 0.5rem;
+  --size-3: 1rem;
+  --size-4: 1.25rem;
+  --size-5: 1.5rem;
+  --size-6: 2rem;
+
+  /* Borders */
+  --radius-1: 0.5rem;
+  --radius-2: 1rem;
+  --radius-round: 1e5px;
+
+  /* Easing */
+  --easing-1: 0.5s ease-in-out;
+
+  /* Breakpoints */
+  --breakpoint-1: 375px;
+  --breakpoint-2: 1440px;
+}
+
+/* Media query for dark mode if prefrence is set in brwoser or OS */
+@media (prefers-color-scheme: dark) {
+  :root {
+    /* Dark theme */
+    color-scheme: dark;
+
+    /* Defaults */
+    --toggle: var(--toggle-gradient-dark);
+    --bg-site: var(--bg-site-dark);
+    --bg-top-pattern: var(--bg-top-pattern-dark);
+    --bg-card: var(--bg-card-dark);
+    --text-1: var(--text-1-dark);
+    --text-2: var(--text-2-dark);
+  }
+}
+
+/* Light theme for manual switch */
+[color-scheme='light'] {
+  /* Light theme */
+  color-scheme: light;
+
+  /* Defaults */
+  --toggle: var(--toggle-gradient-light);
+  --bg-site: var(--bg-site-light);
+  --bg-top-pattern: var(--bg-top-pattern-light);
+  --bg-card: var(--bg-card-light);
+  --text-1: var(--text-1-light);
+  --text-2: var(--text-2-light);
+}
+
+/* Dark theme for manual switch */
+[color-scheme='dark'] {
+  /* Dark theme */
+  color-scheme: dark;
+
+  /* Defaults */
+  --toggle: var(--toggle-gradient-dark);
+  --bg-site: var(--bg-site-dark);
+  --bg-top-pattern: var(--bg-top-pattern-dark);
+  --bg-card: var(--bg-card-dark);
+  --text-1: var(--text-1-dark);
+  --text-2: var(--text-2-dark);
+}
+
+/* Basic styles */
+*,
+*::after,
+*::before {
+  box-sizing: border-box;
+}
+
+html {
+  block-size: 100%;
+  font-family: var(--font);
+  line-height: var(--line-height-1);
+}
+
+body {
+  min-block-size: 100%;
+  display: grid;
+  place-content: center;
+  font-size: var(--font-size-1);
+}
+
+img {
+  display: block;
+  max-inline-size: 100%;
+  block-size: auto;
+}
+
+/* Heading styles */
+h1,
+h2,
+h3 {
+  margin: 0;
+  font-weight: var(--font-weight-2);
+  line-height: var(--line-height-2);
+}
+
+/* Link styles */
+a {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  touch-action: manipulation;
+  margin: var(--size-0);
+  padding: var(--size-1);
+  text-decoration: inherit;
+  text-underline-offset: 1px;
+}
