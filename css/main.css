@@ -97,19 +97,19 @@ html {
 }
 
 /* Media query for dark mode if prefrence is set in brwoser or OS */
-@media (prefers-color-scheme: dark) {
+@media (prefers-color-scheme: light) {
   :root {
-    /* Dark theme */
-    color-scheme: dark;
+    /* Light theme */
+    color-scheme: light;
 
     /* Defaults */
-    --toggle: var(--toggle-gradient-dark);
-    --bg-site: var(--bg-site-dark);
-    --bg-top-pattern: var(--bg-top-pattern-dark);
-    --bg-card: var(--bg-card-dark);
-    --bg-card-hover: var(--bg-card-hover-dark);
-    --text-1: var(--text-1-dark);
-    --text-2: var(--text-2-dark);
+    --toggle: var(--toggle-gradient-light);
+    --bg-site: var(--bg-site-light);
+    --bg-top-pattern: var(--bg-top-pattern-light);
+    --bg-card: var(--bg-card-light);
+    --bg-card-hover: var(--bg-card-hover-light);
+    --text-1: var(--text-1-light);
+    --text-2: var(--text-2-light);
   }
 }
 
