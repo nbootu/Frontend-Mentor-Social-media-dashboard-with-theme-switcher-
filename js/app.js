@@ -29,3 +29,28 @@ switcher.addEventListener('input', (e) => {
     doc.setAttribute('color-scheme', 'light');
   }
 });
+
+/* Background pattern */
+const setBgPattern = () => {
+  // Get main grid and pattern element
+  const mainGrid = document.querySelector('main');
+  const bgPattern = document.querySelector('.bg-pattern');
+
+  // Get distance to top
+  const gridHalfHeight = mainGrid.getBoundingClientRect().height / 2;
+  const gridDistanceTop = mainGrid.getBoundingClientRect().top;
+  const topOffset = gridHalfHeight + gridDistanceTop;
+
+  // Set position of pattern element
+  if (window.matchMedia('(min-width: 768px)').matches) {
+    bgPattern.style.blockSize = `${topOffset}px`;
+  } else {
+    bgPattern.style.blockSize = 0;
+  }
+};
+
+// Listen to resize event
+window.addEventListener('resize', setBgPattern);
+
+// Run function onLoad
+setBgPattern();

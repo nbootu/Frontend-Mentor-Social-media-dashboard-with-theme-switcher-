@@ -84,14 +84,16 @@ html {
 
   /* Borders */
   --radius-1: 0.3rem;
+  --radius-2: 1rem;
   --radius-round: 1e5px;
 
   /* Easing */
   --easing-1: 0.5s ease-in-out;
 
   /* Breakpoints */
-  --breakpoint-1: 350px;
-  --breakpoint-2: 1440px;
+  --breakpoint-1: 375px;
+  --breakpoint-2: 768px;
+  --breakpoint-3: 1440px;
 }
 
 /* Media query for dark mode if prefrence is set in brwoser or OS */
@@ -214,7 +216,7 @@ a {
 .main-header {
   display: flex;
   flex-direction: column;
-  max-inline-size: var(--breakpoint-1);
+  max-inline-size: calc(var(--breakpoint-1) - 25px);
   inline-size: 90vw;
   margin-block: var(--size-7);
 }
@@ -394,4 +396,60 @@ main {
   display: flex;
   align-items: center;
   gap: var(--size-1);
+}
+
+/* Responsive styles */
+@media screen and (min-width: 768px) {
+  .bg-pattern {
+    content: '';
+    position: absolute;
+    inset-block-start: 0;
+    inset-inline-start: 0;
+    inline-size: 100%;
+    block-size: 0;
+    border-end-start-radius: var(--radius-2);
+    border-end-end-radius: var(--radius-2);
+    background: var(--bg-top-pattern);
+    z-index: -1;
+  }
+
+  .main-header {
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    max-inline-size: calc(var(--breakpoint-2) - 25px);
+  }
+
+  .header-title {
+    border: none;
+  }
+
+  .header-title > p {
+    margin-block-end: 0;
+  }
+
+  .theme-switcher {
+    margin: 0;
+    gap: var(--size-2);
+  }
+
+  main,
+  .overview {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media screen and (min-width: 1440px) {
+  body {
+    place-content: start center;
+  }
+
+  .main-header {
+    max-inline-size: calc(var(--breakpoint-3) - 25px);
+  }
+
+  main,
+  .overview {
+    grid-template-columns: repeat(4, 1fr);
+  }
 }
